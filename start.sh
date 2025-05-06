@@ -1,0 +1,1 @@
+conda env create -f flux_environment.yml
