@@ -1,0 +1,130 @@
+nohup: ignoring input
+/root/autodl-tmp/miniconda3/envs/flux/lib/python3.13/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_processes` was set to a value of `1`
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/root/autodl-tmp/miniconda3/envs/flux/lib/python3.13/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/root/autodl-tmp/miniconda3/envs/flux/lib/python3.13/site-packages/accelerate/accelerator.py:498: UserWarning: `log_with=wandb` was passed but no supported trackers are currently installed.
+  warnings.warn(f"`log_with={log_with}` was passed but no supported trackers are currently installed.")
+Detected kernel version 4.19.90, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+05/05/2025 00:43:41 - INFO - __main__ - Distributed environment: DistributedType.NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: bf16
+
+05/05/2025 00:43:42 - INFO - accelerate.utils.modeling - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+All model checkpoint weights were used when initializing AutoencoderKL.
+
+All the weights of AutoencoderKL were initialized from the model checkpoint at black-forest-labs/FLUX.1-dev.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKL for predictions without further training.
+05/05/2025 00:43:42 - INFO - __main__ - loading vae
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 27594.11it/s]
+{'out_channels', 'axes_dims_rope'} was not found in config. Values will be initialized to default values.
+05/05/2025 00:43:43 - INFO - accelerate.utils.modeling - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:09,  4.94s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:10<00:05,  5.17s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  3.73s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:12<00:00,  4.09s/it]
+All model checkpoint weights were used when initializing FluxTransformer2DModel.
+
+All the weights of FluxTransformer2DModel were initialized from the model checkpoint at black-forest-labs/FLUX.1-dev.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use FluxTransformer2DModel for predictions without further training.
+05/05/2025 00:43:56 - INFO - __main__ - loading flux_transformer
+05/05/2025 00:43:56 - INFO - __main__ - All models loaded successfully
+{'image_encoder', 'feature_extractor'} was not found in config. Values will be initialized to default values.
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]{'invert_sigmas', 'shift_terminal', 'stochastic_sampling', 'use_karras_sigmas', 'use_beta_sigmas', 'use_exponential_sigmas', 'time_shift_type'} was not found in config. Values will be initialized to default values.
+Loaded scheduler as FlowMatchEulerDiscreteScheduler from `scheduler` subfolder of black-forest-labs/FLUX.1-dev.
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.44it/s][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.52it/s][ALoading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.50it/s]
+Loaded text_encoder_2 as T5EncoderModel from `text_encoder_2` subfolder of black-forest-labs/FLUX.1-dev.
+Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.46it/s]Loaded text_encoder as CLIPTextModel from `text_encoder` subfolder of black-forest-labs/FLUX.1-dev.
+Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.16it/s]You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+Loaded tokenizer_2 as T5TokenizerFast from `tokenizer_2` subfolder of black-forest-labs/FLUX.1-dev.
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.19it/s]Loaded tokenizer as CLIPTokenizer from `tokenizer` subfolder of black-forest-labs/FLUX.1-dev.
+Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.47it/s]
+05/05/2025 00:43:59 - INFO - __main__ - Setting up custom tokens: ['<😊1>'] initialized with: ['sofa']
+The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+05/05/2025 00:43:59 - INFO - __main__ - Updating tokenizer and text encoder for the main pipeline
+{'invert_sigmas', 'shift_terminal', 'stochastic_sampling', 'use_karras_sigmas', 'use_beta_sigmas', 'use_exponential_sigmas', 'time_shift_type'} was not found in config. Values will be initialized to default values.
+05/05/2025 00:43:59 - INFO - __main__ - Number of trainable parameters: 18,677,760
+05/05/2025 00:43:59 - INFO - __main__ - Percentage of trainable parameters: 0.16%
+Added 1 tokens to the tokenizer
+Token IDs: [49408]
+Initialized token ID 49408 with embedding of 'sofa'
+Made 0 token embeddings learnable
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 10 examples [00:00, 1394.99 examples/s]
+Flattening the indices:   0%|          | 0/10 [00:00<?, ? examples/s]Flattening the indices: 100%|██████████| 10/10 [00:00<00:00, 4220.05 examples/s]
+05/05/2025 00:44:01 - INFO - __main__ - ***** Running training *****
+05/05/2025 00:44:01 - INFO - __main__ -   Num examples = 10
+05/05/2025 00:44:01 - INFO - __main__ -   Num batches each epoch = 10
+05/05/2025 00:44:01 - INFO - __main__ -   Num Epochs = 50
+05/05/2025 00:44:01 - INFO - __main__ -   Instantaneous batch size per device = 1
+05/05/2025 00:44:01 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 1
+05/05/2025 00:44:01 - INFO - __main__ -   Gradient Accumulation steps = 1
+05/05/2025 00:44:01 - INFO - __main__ -   Total optimization steps = 500
+Steps:   0%|          | 0/500 [00:00<?, ?it/s]05/05/2025 00:44:01 - INFO - __main__ - Running initial validation at step 0
+05/05/2025 00:44:01 - INFO - __main__ - Running validation... 
+{'image_encoder', 'feature_extractor'} was not found in config. Values will be initialized to default values.
+
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s][A{'invert_sigmas', 'shift_terminal', 'stochastic_sampling', 'use_karras_sigmas', 'use_beta_sigmas', 'use_exponential_sigmas', 'time_shift_type'} was not found in config. Values will be initialized to default values.
+Loaded scheduler as FlowMatchEulerDiscreteScheduler from `scheduler` subfolder of black-forest-labs/FLUX.1-dev.
+Instantiating AutoencoderKL model under default dtype torch.bfloat16.
+All model checkpoint weights were used when initializing AutoencoderKL.
+
+All the weights of AutoencoderKL were initialized from the model checkpoint at /root/autodl-tmp/huggingface/hub/models--black-forest-labs--FLUX.1-dev/snapshots/0ef5fff789c832c5c7f4e127f94c8b54bbcced44/vae.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKL for predictions without further training.
+Loaded vae as AutoencoderKL from `vae` subfolder of black-forest-labs/FLUX.1-dev.
+
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A[ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 59.99it/s]
+Loaded text_encoder_2 as T5EncoderModel from `text_encoder_2` subfolder of black-forest-labs/FLUX.1-dev.
+
+Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:00, 29.76it/s][ALoaded tokenizer_2 as T5TokenizerFast from `tokenizer_2` subfolder of black-forest-labs/FLUX.1-dev.
+
+Loading pipeline components...:  86%|████████▌ | 6/7 [00:00<00:00, 17.71it/s][ALoading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 21.98it/s]
+05/05/2025 00:44:04 - INFO - __main__ - Loaded 6 prompts from validation_prompts.json
+05/05/2025 00:44:36 - INFO - __main__ - Generated image 1/2 for prompt 1/6
+05/05/2025 00:45:08 - INFO - __main__ - Generated image 2/2 for prompt 1/6
+05/05/2025 00:45:40 - INFO - __main__ - Generated image 1/2 for prompt 2/6
+05/05/2025 00:46:12 - INFO - __main__ - Generated image 2/2 for prompt 2/6
+05/05/2025 00:46:44 - INFO - __main__ - Generated image 1/2 for prompt 3/6
+05/05/2025 00:47:15 - INFO - __main__ - Generated image 2/2 for prompt 3/6
+05/05/2025 00:47:48 - INFO - __main__ - Generated image 1/2 for prompt 4/6
+05/05/2025 00:48:20 - INFO - __main__ - Generated image 2/2 for prompt 4/6
+05/05/2025 00:48:52 - INFO - __main__ - Generated image 1/2 for prompt 5/6
+05/05/2025 00:49:24 - INFO - __main__ - Generated image 2/2 for prompt 5/6
+05/05/2025 00:49:56 - INFO - __main__ - Generated image 1/2 for prompt 6/6
+05/05/2025 00:50:28 - INFO - __main__ - Generated image 2/2 for prompt 6/6
+Traceback (most recent call last):
+  File "/root/autodl-tmp/flux_train/flux_train.py", line 1414, in <module>
+    main(args)
+    ~~~~^^^^^^
+  File "/root/autodl-tmp/flux_train/flux_train.py", line 1225, in main
+    pooled_prompt_embeds = transformer_text_encoder.get_pooled_embeddings(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/miniconda3/envs/flux/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1940, in __getattr__
+    raise AttributeError(
+        f"'{type(self).__name__}' object has no attribute '{name}'"
+    )
+AttributeError: 'CLIPTextModel' object has no attribute 'get_pooled_embeddings'. Did you mean: '_get_resized_embeddings'?
+Steps:   0%|          | 0/500 [06:27<?, ?it/s]
+Traceback (most recent call last):
+  File "/root/autodl-tmp/miniconda3/envs/flux/bin/accelerate", line 11, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/root/autodl-tmp/miniconda3/envs/flux/lib/python3.13/site-packages/accelerate/commands/accelerate_cli.py", line 48, in main
+    args.func(args)
+    ~~~~~~~~~^^^^^^
+  File "/root/autodl-tmp/miniconda3/envs/flux/lib/python3.13/site-packages/accelerate/commands/launch.py", line 1199, in launch_command
+    simple_launcher(args)
+    ~~~~~~~~~~~~~~~^^^^^^
+  File "/root/autodl-tmp/miniconda3/envs/flux/lib/python3.13/site-packages/accelerate/commands/launch.py", line 778, in simple_launcher
+    raise subprocess.CalledProcessError(returncode=process.returncode, cmd=cmd)
+subprocess.CalledProcessError: Command '['/root/autodl-tmp/miniconda3/envs/flux/bin/python', 'flux_train.py', '--pretrained_model_name_or_path=black-forest-labs/FLUX.1-dev', '--jsonl_for_train=Sofa_test1/metadata.jsonl', '--output_dir=sofa_test2', '--mixed_precision=bf16', '--train_batch_size=1', '--rank=16', '--gradient_accumulation_steps=1', '--gradient_checkpointing', '--learning_rate=1e-4', '--report_to=wandb', '--lr_scheduler=constant', '--lr_warmup_steps=0', '--max_train_steps=500', '--validation_prompt_file=validation_prompts.json', '--num_validation_images_per_prompt=2', '--validation_steps=50', '--use_custom_tokens', '--custom_tokens=<😊1>', '--token_init_words=sofa', '--save_token_embeddings', '--seed=0']' returned non-zero exit status 1.
