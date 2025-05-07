@@ -1,0 +1,1 @@
+python cal_lpips.py --output_dir sofa_test2 --train_dir Sofa_test1

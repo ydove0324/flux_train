@@ -1126,19 +1126,19 @@ def main(args):
     flux_transformer.to("cuda")
     
     # Only do initial validation if specified
-    if args.validation_steps > 0 and (args.validation_prompt is not None or args.validation_prompt_file is not None):
-        logger.info("Running initial validation at step 0")
-        log_validation(
-            flux_transformer=flux_transformer,
-            args=args,
-            accelerator=accelerator,
-            weight_dtype=weight_dtype,
-            step=global_step,
-            text_encoder=transformer_text_encoder,
-            tokenizer=transformer_tokenizer,
-        )
-        # Free memory after validation
-        torch.cuda.empty_cache()
+    # if args.validation_steps > 0 and (args.validation_prompt is not None or args.validation_prompt_file is not None):
+    #     logger.info("Running initial validation at step 0")
+    #     log_validation(
+    #         flux_transformer=flux_transformer,
+    #         args=args,
+    #         accelerator=accelerator,
+    #         weight_dtype=weight_dtype,
+    #         step=global_step,
+    #         text_encoder=transformer_text_encoder,
+    #         tokenizer=transformer_tokenizer,
+    #     )
+    #     # Free memory after validation
+    #     torch.cuda.empty_cache()
     
     for epoch in range(first_epoch, args.num_train_epochs):
         flux_transformer.train()
@@ -1203,40 +1203,12 @@ def main(args):
                 captions = batch["captions"]
                 # Use the cached tokenizer and text encoder instead of reloading
                 with torch.no_grad():
-                    if transformer_tokenizer is not None and transformer_text_encoder is not None:
-                        # First, tokenize the text
-                        text_inputs = transformer_tokenizer(
-                            captions,
-                            padding="max_length",
-                            max_length=transformer_tokenizer.model_max_length,
-                            truncation=True,
-                            return_tensors="pt",
-                        ).to(accelerator.device)
-                        
-                        # Then, encode the text
-                        text_input_ids = text_inputs.input_ids
-                        prompt_embeds = transformer_text_encoder(
-                            text_input_ids,
-                            output_hidden_states=True,
-                        )
-                        prompt_embeds = prompt_embeds[0]
-                        
-                        # Get pooled output for classifier-free guidance
-                        pooled_prompt_embeds = transformer_text_encoder.text_model.final_layer_norm(
-                            transformer_text_encoder.text_model.transformer.ln_final(
-                                prompt_embeds[torch.arange(prompt_embeds.shape[0]), text_input_ids.argmax(dim=-1)]
-                            )
-                        )
-                        
-                        text_ids = text_input_ids
-                    else:
-                        # Fall back to using the pipeline if custom tokens are not used
-                        text_encoding_pipeline = text_encoding_pipeline.to(accelerator.device)
-                        prompt_embeds, pooled_prompt_embeds, text_ids = text_encoding_pipeline.encode_prompt(
-                            captions, prompt_2=None
-                        )
-                        if args.offload:
-                            text_encoding_pipeline = text_encoding_pipeline.to("cpu")
+                    text_encoding_pipeline = text_encoding_pipeline.to(accelerator.device)
+                    prompt_embeds, pooled_prompt_embeds, text_ids = text_encoding_pipeline.encode_prompt(
+                        captions, prompt_2=None
+                    )
+                    if args.offload:
+                        text_encoding_pipeline = text_encoding_pipeline.to("cpu")
                 
                 # this could be optimized by not having to do any text encoding and just
                 # doing zeros on specified shapes for `prompt_embeds` and `pooled_prompt_embeds`

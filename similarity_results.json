@@ -1,0 +1,128 @@
+{
+    "validation": {
+        "avg_lpips_distance": 0.6374308802187443,
+        "min_lpips_distance": 0.411443293094635,
+        "individual_results": [
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_000/image_00.png",
+                "best_match": "Sofa_test1/000028_edit.png",
+                "lpips_distance": 0.7155879139900208
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_000/image_01.png",
+                "best_match": "Sofa_test1/000103_edit.png",
+                "lpips_distance": 0.721656858921051
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_001/image_00.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.5907358527183533
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_001/image_01.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.674321174621582
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_002/image_00.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.411443293094635
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_002/image_01.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.5788602828979492
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_003/image_00.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.6764653921127319
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_003/image_01.png",
+                "best_match": "Sofa_test1/000007.png",
+                "lpips_distance": 0.6884582042694092
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_004/image_00.png",
+                "best_match": "Sofa_test1/000025.png",
+                "lpips_distance": 0.6599705219268799
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_004/image_01.png",
+                "best_match": "Sofa_test1/000007.png",
+                "lpips_distance": 0.6423982977867126
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_005/image_00.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.6230958700180054
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000000/prompt_005/image_01.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.6199151873588562
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_000/image_00.png",
+                "best_match": "Sofa_test1/000028_edit.png",
+                "lpips_distance": 0.7189175486564636
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_000/image_01.png",
+                "best_match": "Sofa_test1/000028_edit.png",
+                "lpips_distance": 0.7130860090255737
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_001/image_00.png",
+                "best_match": "Sofa_test1/000025.png",
+                "lpips_distance": 0.6225777864456177
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_001/image_01.png",
+                "best_match": "Sofa_test1/000007.png",
+                "lpips_distance": 0.659113347530365
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_002/image_00.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.428629070520401
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_002/image_01.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.5859625339508057
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_003/image_00.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.6890814304351807
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_003/image_01.png",
+                "best_match": "Sofa_test1/000007.png",
+                "lpips_distance": 0.7124119400978088
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_004/image_00.png",
+                "best_match": "Sofa_test1/000025.png",
+                "lpips_distance": 0.6492335200309753
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_004/image_01.png",
+                "best_match": "Sofa_test1/000007.png",
+                "lpips_distance": 0.6298648118972778
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_005/image_00.png",
+                "best_match": "Sofa_test1/000003.png",
+                "lpips_distance": 0.6326694488525391
+            },
+            {
+                "output_image": "sofa_test2/validation/step_000050/prompt_005/image_01.png",
+                "best_match": "Sofa_test1/000002.png",
+                "lpips_distance": 0.6538848280906677
+            }
+        ]
+    }
+}

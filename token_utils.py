@@ -61,12 +61,20 @@ def initialize_token_embeddings(
             print(f"Warning: '{word}' tokenized to empty list. Using random initialization for token ID {token_id}")
             continue
             
-        # Use the first token's embedding if the word is split into multiple tokens
-        word_token_id = word_tokens[0]
+        # # Use the first token's embedding if the word is split into multiple tokens
+        # word_token_id = word_tokens[0]
+        # # Get the embedding
+        # word_embedding = text_encoder.get_input_embeddings().weight[word_token_id].clone().detach()
         
-        # Get the embedding
-        word_embedding = text_encoder.get_input_embeddings().weight[word_token_id].clone().detach()
-        
+        # 改进版本:使用所有token embeddings的平均值
+        if len(word_tokens) > 1:
+            # 获取所有token的embeddings
+            all_embeddings = [text_encoder.get_input_embeddings().weight[id].clone().detach() for id in word_tokens]
+            # 计算平均值
+            word_embedding = torch.stack(all_embeddings).mean(dim=0)
+        else:
+            word_embedding = text_encoder.get_input_embeddings().weight[word_tokens[0]].clone().detach()
+
         # Set the new token's embedding
         with torch.no_grad():
             text_encoder.get_input_embeddings().weight[token_id] = word_embedding
@@ -102,7 +110,7 @@ def make_tokens_learnable(
         text_encoder.get_input_embeddings().weight[token_id].requires_grad = True
         
     # Count trainable tokens
-    trainable_tokens = sum(p.requires_grad for p in text_encoder.get_input_embeddings().weight)
+    trainable_tokens = len(token_ids)
     print(f"Made {trainable_tokens} token embeddings learnable")
     
     return pipeline

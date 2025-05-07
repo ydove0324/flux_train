@@ -1,3 +1,7 @@
 *.zip
 livingroom_asset_finetune
 *test*
+*.log
+*sofa_allen*
+train.log
+__pycache__/token_utils.cpython-313.pyc
