@@ -5,3 +5,5 @@ livingroom_asset_finetune
 *sofa_allen*
 train.log
 __pycache__/token_utils.cpython-313.pyc
+dataset
+dreambooth_dog6
